@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_item_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home_black_24dp"/>
+
+    <item
+        android:id="@+id/nav_item_events"
+        android:title="Events"
+        android:icon="@drawable/ic_event_black_24dp"/>
+
+    <item
+        android:id="@+id/nav_item_bani"
+        android:title="Bani"
+        android:icon="@drawable/ic_view_stream_black_24dp" />
+
+    <item
+        android:id="@+id/nav_item_About"
+        android:title="About"
+        android:icon="@drawable/ic_change_history_black_24dp"/>
+
+
+</menu>

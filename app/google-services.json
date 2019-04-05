@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "142120162772",
+    "firebase_url": "https://babamatiji-22f9e.firebaseio.com",
+    "project_id": "babamatiji-22f9e",
+    "storage_bucket": "babamatiji-22f9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142120162772:android:7b7e79b6a9e72847",
+        "android_client_info": {
+          "package_name": "com.manishpreet.babamatiji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142120162772-uf3plji34p81qnqm542qk2hcfvfahmlu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.manishpreet.babamatiji",
+            "certificate_hash": "45a214ffe5bc7184a28ec40487c8fa32f33cf4ee"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAStxAASqFoMgqm8Ty-Xv8Fmfu4WtSfTGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142120162772-vp2f8jiit3l03vnhjgsu1a1ptqjmq6k0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

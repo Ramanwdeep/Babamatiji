@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createpost.CreatePost"
+    android:background="#ffffff">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:id="@+id/header"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="22dp"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginRight="16dp"
+        android:padding="16dp"
+        android:id="@+id/done"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_check_black_24dp"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/layout"
+        android:layout_below="@+id/header"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/linear_contaienr"
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_margin="8dp"
+                android:layout_height="50dp"
+                android:src="@drawable/im_dummy"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_margin="8dp"
+                android:id="@+id/editpostt"
+                android:padding="8dp"
+                android:background="@drawable/corner_bacground"
+                android:hint="Write Something here"
+                android:gravity="start" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="1dp"/>
+
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout"
+        android:layout_above="@id/add_photo">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+    <Button
+        android:id="@+id/add_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Add photo"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:layout_margin="8dp"
+        android:background="#fe485a"
+        />
+
+
+
+</RelativeLayout>
