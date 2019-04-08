@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.manishpreet.babamatiji.Post;
 import com.manishpreet.babamatiji.R;
 
@@ -35,6 +36,7 @@ class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         holder.post_imgage.setImageBitmap(getImage(posts.get(i).getImage()));
+
     }
 
     @Override

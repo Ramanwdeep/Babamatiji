@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bani_1"
+        android:title="Bani 1"/>
+
+    <item android:id="@+id/bani_2"
+        android:title="Bani 2"/>
+
+
+    <item android:id="@+id/bani_3"
+        android:title="Bani 3"/>
+
+
+    <item android:id="@+id/bani_4"
+        android:title="Bani 4"/>
+
+    <item android:id="@+id/bani_5"
+        android:title="Bani 5"/>
+
+    <item android:id="@+id/bani_6"
+        android:title="Bani 6"/>
+
+</menu>

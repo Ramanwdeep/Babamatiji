@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".profile.ProfileActivity"></activity>
         <activity android:name=".profile.LoginActivity"></activity>
+        <activity android:name=".profile.SignupActivity"></activity>
         <activity android:name=".createpost.CreatePost" />
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">

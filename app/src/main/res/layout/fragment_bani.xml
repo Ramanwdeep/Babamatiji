@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bani.BaniFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".bani.BaniFragment"
+    tools:openDrawer="start"
+    android:id="@+id/bani_drawer_layout">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+
+    <include layout="@layout/bani_content_main"/>
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/bani_navigation_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Bani fragment" />
+        app:headerLayout="@layout/bani_header"
+        app:menu="@menu/menu_bani"
+        android:layout_gravity="start"
+        >
 
-</FrameLayout>
+    </android.support.design.widget.NavigationView>
+
+
+
+
+
+
+
+
+
+
+</android.support.v4.widget.DrawerLayout>

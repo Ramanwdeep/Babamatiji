@@ -15,7 +15,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.manishpreet.babamatiji.MainActivity;
+import com.manishpreet.babamatiji.Prefrences;
 import com.manishpreet.babamatiji.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -63,7 +66,6 @@ ProgressDialog dialog;
         {
             Intent intent=new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(intent);
-            finish();
         }
 
 
@@ -108,14 +110,38 @@ ProgressDialog dialog;
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    dialog.dismiss();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
+                    getUserfromDatabase(task.getResult().getUser().getUid());
+
                 }
             }
         });
 
 
 
+    }
+
+    private void getUserfromDatabase(String uid) {
+        FirebaseFirestore.getInstance().collection("usres")
+                .document(uid).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful())
+                        {
+                            User user=task.getResult().toObject(User.class);
+                            Prefrences.saveUser(user);
+                            Toast.makeText(LoginActivity.this, "User Login Successfull", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        }
+                         }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

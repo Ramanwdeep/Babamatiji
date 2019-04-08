@@ -41,7 +41,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
-                android:padding="4dp"
+                android:padding="6dp"
                 android:src="@drawable/mail_1"/>
 
             <EditText
@@ -66,7 +66,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:padding="4dp"
+                android:padding="6dp"
                 android:layout_marginLeft="4dp"
                 android:src="@drawable/lock_1" />
 

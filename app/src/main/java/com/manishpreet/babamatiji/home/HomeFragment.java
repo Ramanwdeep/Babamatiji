@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    for (int i = 0; i < task.getResult().size() - 1; i++) {
+                    for (int i = 0; i < task.getResult().size(); i++) {
                         Post post = task.getResult().getDocuments().get(i).toObject(Post.class);
                         adapter.add(post);
                         adapter.notifyDataSetChanged();

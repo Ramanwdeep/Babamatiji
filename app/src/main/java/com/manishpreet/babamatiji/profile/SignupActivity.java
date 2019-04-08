@@ -2,6 +2,7 @@ package com.manishpreet.babamatiji.profile;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.wifi.hotspot2.pps.HomeSp;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,9 +18,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.manishpreet.babamatiji.MainActivity;
+import com.manishpreet.babamatiji.Prefrences;
 import com.manishpreet.babamatiji.R;
 
 public class SignupActivity extends AppCompatActivity
@@ -123,8 +124,8 @@ public class SignupActivity extends AppCompatActivity
                 {
                     FirebaseUser firebaseUser=task.getResult().getUser();
 
-                    final User user = new User(userName, address, contact, email,password,firebaseUser.getUid());
-                    saveToDatabase();
+                    User user = new User(userName, address, contact, email,password,firebaseUser.getUid());
+                    saveToDatabase(user);
                 }
 
             }
@@ -139,7 +140,23 @@ public class SignupActivity extends AppCompatActivity
 
     }
 
-    private void saveToDatabase() {
+    private void saveToDatabase(final User user) {
+        FirebaseFirestore.getInstance().collection("users").document(user.uid).set(user)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        dialog.dismiss();
+                        Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Prefrences.saveUser(user);
+                dialog.dismiss();
+                startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                finish();
+            }
+        });
     }
 }
 
