@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.manishpreet.babamatiji.Post;
 import com.manishpreet.babamatiji.R;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
     ArrayList<Post> posts;
@@ -64,5 +66,14 @@ class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
         return decodedImage;
 
+    }
+
+    String getDate(Long millisecond)
+    {
+
+        // or you already have long value of date, use this instead of milliseconds variable.
+        String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
+
+        return dateString;
     }
 }
