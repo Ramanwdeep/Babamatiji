@@ -12,7 +12,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         FirebaseApp.initializeApp(this);
-        prefrences=getSharedPreferences("mansihd",MODE_PRIVATE);
-        editor=prefrences.edit();
+
     }
 }

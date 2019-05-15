@@ -1,17 +1,16 @@
 package com.manishpreet.babamatiji.home;
 
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +22,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.manishpreet.babamatiji.Post;
 import com.manishpreet.babamatiji.R;
 
+import com.manishpreet.babamatiji.profile.ProfileActivity;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -30,6 +31,24 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerview;
     PostAdapter adapter;
     FirebaseFirestore firebaseFirestore;
+    ImageButton btn_notif,btn_profile;
+
+
+
+    public static HomeFragment instance;
+
+    public static HomeFragment getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new HomeFragment();
+        }
+        return instance;
+    }
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +63,11 @@ public class HomeFragment extends Fragment {
         firebaseFirestore=FirebaseFirestore.getInstance();
         recyclerview=view.findViewById(R.id.recyclerview);
 
-        adapter = new PostAdapter(this);
+
+
+        btn_profile=view.findViewById(R.id.btn_profile);
+
+        adapter = new PostAdapter(getContext());
         recyclerview.setAdapter(adapter);
         getPosts();
 
@@ -63,13 +86,23 @@ public class HomeFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (int i = 0; i < task.getResult().size(); i++) {
                         Post post = task.getResult().getDocuments().get(i).toObject(Post.class);
-                        adapter.add(post);
+                        adapter.add(post,task.getResult().getDocuments().get(i).getId());
+
                         adapter.notifyDataSetChanged();
                     }
                 }
             }
 
         });
+    btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ProfileActivity.class));
+            }
+        });
+
+
     }
+
 
 }

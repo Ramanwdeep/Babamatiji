@@ -129,7 +129,7 @@ ProgressDialog dialog;
                         if (task.isSuccessful())
                         {
                             User user=task.getResult().toObject(User.class);
-                            Prefrences.saveUser(user);
+                            Prefrences.saveUser(LoginActivity.this,user);
                             Toast.makeText(LoginActivity.this, "User Login Successfull", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));

@@ -13,141 +13,117 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-
-        android:padding="32dp">
+       android:padding="32dp">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
             android:layout_width="96dp"
             android:layout_height="96dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/im_dummy"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:gravity="bottom"
+            android:text="Username"
+            android:id="@+id/name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="UserName"
+            android:text="abc@email.com"
+            android:id="@+id/email"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="Edit_Profile"
+            android:id="@+id/editprofile"
+            android:padding="8dp"
+            android:layout_gravity="center"
             android:textSize="25dp"
             android:textStyle="bold"
 
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Edit_Profile"
-            android:textSize="20dp"
-            android:textStyle="bold"
-
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="E_mail"
-
-            android:textSize="20dp"
-            android:textStyle="bold"
-
-            />
-
-
-
-
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="345"
-                android:textStyle="bold"
-                android:textSize="24sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Followers"
-                android:textSize="20sp"/>
+        <!--<LinearLayout-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:backgroundTint="@color/colorPrimaryDark"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="8dp"-->
+            <!--android:layout_marginEnd="4dp"-->
+            <!--android:background="@drawable/edit_round"-->
+            <!--android:orientation="vertical"-->
+            <!--android:gravity="center">-->
 
 
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="121"-->
+                <!--android:textColor="#FFFFFF"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textSize="12sp"/>-->
 
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="121"
-                android:textStyle="bold"
-                android:textSize="24sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Following"
-                android:textSize="20sp"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Post"-->
+                <!--android:textColor="#FFFFFF"-->
+                <!--android:textSize="14sp"/>-->
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+        <!--</LinearLayout>-->
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="345"
-                android:textStyle="bold"
-                android:textSize="24sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Followers"
-                android:textSize="20sp"/>
-
-
-        </LinearLayout>
 
 
 
     </LinearLayout>
 
-
-
-    <GridView
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Log Out"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/edit_round"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/logout"/>
 
 
-    </GridView>
+
 
 
 </LinearLayout>
+
+
+
+

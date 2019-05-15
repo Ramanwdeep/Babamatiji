@@ -14,20 +14,22 @@ import com.manishpreet.babamatiji.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-
-
+FirebaseAuth auth;
+//User user;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
-
+        auth=FirebaseAuth.getInstance();
+        user=auth.getCurrentUser();
+//user=Prefrences.getUser(this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                final User user= Prefrences.getUser();
+              // FirebaseUser user=auth.getCurrentUser();
                 if (user != null)
                 {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
@@ -40,9 +42,6 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
-
-
-
 
             }
         }, 3000);

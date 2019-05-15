@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".createpost.CreatePost"
     android:background="#ffffff">
 
@@ -45,13 +46,14 @@
                 android:layout_width="50dp"
                 android:layout_margin="8dp"
                 android:layout_height="50dp"
-                android:src="@drawable/im_dummy"/>
+                android:src="@drawable/raman"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_margin="8dp"
                 android:id="@+id/editpostt"
                 android:padding="8dp"
+                android:textColor="@color/black"
                 android:background="@drawable/corner_bacground"
                 android:hint="Write Something here"
                 android:gravity="start" />
@@ -88,7 +90,7 @@
         android:textSize="15dp"
         android:textColor="#ffffff"
         android:layout_margin="8dp"
-        android:background="#fe485a"
+        android:background="@color/colorPrimary"
         />
 
 

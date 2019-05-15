@@ -2,32 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.manishpreet.babamatiji">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".profile.ProfileActivity"></activity>
-        <activity android:name=".profile.LoginActivity"></activity>
-        <activity android:name=".profile.SignupActivity"></activity>
+        <activity android:name=".profile.EditActivity"></activity>
+        <activity android:name=".events.AddEvents" />
+        <activity android:name=".home.commentActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".profile.LoginActivity" />
+        <activity android:name=".profile.SignupActivity" />
         <activity android:name=".createpost.CreatePost" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".profile.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-        </activity>
-        <activity android:name=".profile.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

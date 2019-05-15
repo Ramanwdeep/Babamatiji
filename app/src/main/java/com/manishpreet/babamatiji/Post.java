@@ -6,7 +6,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Date;
 
 public class Post {
-    public Post(String description, String image) {
+    public Post(String description, String image,String uid) {
         this.Image=image;
         this.timestemp= new Date().getTime();
         this.Uid= FirebaseAuth.getInstance().getUid();

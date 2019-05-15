@@ -1,9 +1,8 @@
 package com.manishpreet.babamatiji.profile;
 
 public class User {
-    public User(String userName, String address, String contact, String email, String password,String uid) {
+    public User(String userName, String contact, String email, String password,String uid) {
         this.name=userName;
-        this.address=address;
         this.contact=contact;
         this.email=email;
         this.password=password;
@@ -11,20 +10,16 @@ public class User {
         this.image="";
     }
 
+    public User()
+    {
+
+    }
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getEmail() {
@@ -52,7 +47,6 @@ public class User {
     }
 
     String name;
-    String address;
     String email;
     String contact;
     String password;

@@ -9,17 +9,18 @@
     android:id="@+id/bani_drawer_layout">
 
 
-    <include layout="@layout/bani_content_main"/>
-
+    <!--<include layout="@layout/bani_content_main"/>-->
 
     <android.support.design.widget.NavigationView
         android:id="@+id/bani_navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/colorPrimary"
+        app:itemTextAppearance="@style/NavigationText"
         app:headerLayout="@layout/bani_header"
         app:menu="@menu/menu_bani"
-        android:layout_gravity="start"
-        >
+        android:layout_gravity="start">
 
     </android.support.design.widget.NavigationView>
 
@@ -27,9 +28,24 @@
 
 
 
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:text="heading"
+        android:gravity="center_horizontal"/>
 
 
-
-
+        <VideoView
+            android:id="@+id/videoview1"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="120dp"
+            android:visibility="gone"/>
 
 </android.support.v4.widget.DrawerLayout>

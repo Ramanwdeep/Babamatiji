@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,10 +27,9 @@ import com.manishpreet.babamatiji.R;
 public class SignupActivity extends AppCompatActivity
         implements View.OnClickListener {
 
-
+    TextView already;
     EditText eUserName;
     EditText ePassword;
-    EditText eAddress;
     EditText eEmail;
     EditText eContactno;
     Button btnReg;
@@ -42,19 +42,22 @@ public class SignupActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
         auth = FirebaseAuth.getInstance();
         dialog = new ProgressDialog(this);
-
+        already=findViewById(R.id.already);
         eUserName =findViewById(R.id.edt_username);
         ePassword =findViewById(R.id.edt_password);
-        eAddress =findViewById(R.id.edt_adress);
         eEmail =findViewById(R.id.edt_email);
         eContactno =findViewById(R.id.edt_contact);
-
         btnReg=findViewById(R.id.btnREGISTER);
-
         btnReg.setOnClickListener(this);
+        already.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignupActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -75,7 +78,6 @@ public class SignupActivity extends AppCompatActivity
         final String userName = eUserName.getText().toString().trim();
         final String password = ePassword.getText().toString().trim();
         final String email = eEmail.getText().toString().trim();
-        final String address = eAddress.getText().toString().trim();
         final String contact = eContactno.getText().toString().trim();
 
 
@@ -95,12 +97,6 @@ public class SignupActivity extends AppCompatActivity
         if (email.isEmpty())
         {
             eEmail.setError("Enter Email");
-            return;
-        }
-
-        if (address.isEmpty())
-        {
-            eAddress.setError("Enter Address");
             return;
         }
 
@@ -124,7 +120,7 @@ public class SignupActivity extends AppCompatActivity
                 {
                     FirebaseUser firebaseUser=task.getResult().getUser();
 
-                    User user = new User(userName, address, contact, email,password,firebaseUser.getUid());
+                    User user = new User(userName, contact, email,password,firebaseUser.getUid());
                     saveToDatabase(user);
                 }
 
@@ -151,7 +147,7 @@ public class SignupActivity extends AppCompatActivity
                 }).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Prefrences.saveUser(user);
+                Prefrences.saveUser(getApplicationContext(),user);
                 dialog.dismiss();
                 startActivity(new Intent(SignupActivity.this, MainActivity.class));
                 finish();

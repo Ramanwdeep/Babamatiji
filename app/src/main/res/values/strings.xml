@@ -3,4 +3,57 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="latlng">31.411421, 75.787732</string>
+
+    <string-array name="events">
+        <item></item>
+        <item>Gurmeet Singh</item>
+        <item>Davinder Singh</item>
+    </string-array>
+
+
+    <!-- Contact List Arrays -->
+    <integer-array name="contact_image">
+        <item>@drawable/image1</item>
+        <item>@drawable/image2</item>
+        <item>@drawable/image3</item>
+    </integer-array>
+
+    <string-array name="contact_name">
+        <item>Harjinder Singh</item>
+        <item>Gurmeet Singh</item>
+        <item>Davinder Singh</item>
+    </string-array>
+
+    <string-array name="contact_number">
+        <item>9876534231</item>
+        <item>9891011333</item>
+        <item>8934354656</item>
+    </string-array>
+
+    <string-array name="contact_email">
+        <item>Harjinder@email.com</item>
+        <item>Gurmeet@email.com</item>
+        <item>Davinder@email.com</item>
+    </string-array>
+
+
+    <!-- Bani Strings -->
+    <string name="history">history of the app</string>
+
+
+    <!-- Bani Strings -->
+    <string name="bani_one"></string>
+    <string name="bani_two">This is bani two string</string>
+    <string name="bani_three">This is bani three string</string>
+    <string name="bani_four">This is bani four string</string>
+    <string name="bani_five">This is bani five string</string>
+    <string name="bani_six">This is bani six string</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_addevents">addevents</string>
+
+
 </resources>

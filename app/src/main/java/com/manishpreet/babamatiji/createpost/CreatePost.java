@@ -32,6 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.manishpreet.babamatiji.Post;
+import com.manishpreet.babamatiji.Prefrences;
 import com.manishpreet.babamatiji.R;
 
 import java.io.File;
@@ -139,20 +140,34 @@ public class CreatePost extends AppCompatActivity implements View.OnClickListene
     }
     void uploadImage(){
         Long timestmp=new Date().getTime();
-        Uri uri=adapter.selectedImages.get(0);
 
-        dialog.show();
-        Glide.with(this)
-                .asBitmap()
-                .load(uri)
-                .into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+       if (description.isEmpty())
+       {
+           Toast.makeText(this, "enter some text", Toast.LENGTH_SHORT).show();
+       }else
+       {
 
-                        getBase64(resource);
-                    }
-                });
+           dialog.show();
+           if (adapter.selectedImages.size()==0)
+           {
+               saveToDatabase("empty");
+           }else
+           {
+               Uri uri=adapter.selectedImages.get(0);
 
+               Glide.with(this)
+                       .asBitmap()
+                       .load(uri)
+                       .into(new SimpleTarget<Bitmap>() {
+                           @Override
+                           public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+
+                               getBase64(resource);
+                           }
+                       });
+
+           }
+       }
 
 
     }
@@ -167,7 +182,7 @@ public class CreatePost extends AppCompatActivity implements View.OnClickListene
     }
 
     private void saveToDatabase(String downloadUrl) {
-        Post post=new Post(description,downloadUrl.toString());
+        Post post=new Post(description,downloadUrl.toString(),"");
 
         firebaseFirestore.collection("posts").document().set(post)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

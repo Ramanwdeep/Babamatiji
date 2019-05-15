@@ -8,11 +8,6 @@
         android:icon="@drawable/ic_notifications"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/item_message"
-        android:title="Messages"
-        android:icon="@drawable/ic_message"
-        app:showAsAction="always"/>
 
     <item
         android:id="@+id/item_profile"

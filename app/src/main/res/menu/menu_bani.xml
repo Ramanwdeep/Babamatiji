@@ -3,14 +3,12 @@
 
     <item android:id="@+id/bani_1"
         android:title="Jaap Sahib"
-
         android:icon="@drawable/ic_view_agenda_black_24dp"/>
 
     <item android:id="@+id/bani_2"
         android:title="Anand Sahib"
         android:icon="@drawable/ic_view_agenda_black_24dp"
         />
-
 
     <item android:id="@+id/bani_3"
         android:title="Benti Chopayi"
@@ -31,6 +29,10 @@
 
     <item android:id="@+id/bani_7"
         android:title="Ardas"
+        android:icon="@drawable/ic_view_agenda_black_24dp"
+        />
+    <item android:id="@+id/bani_8"
+        android:title="Gurudwara Vedio"
         android:icon="@drawable/ic_view_agenda_black_24dp"
         />
 

@@ -3,12 +3,43 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary"
+    android:layout_gravity="center_vertical"
+    >
 
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="BabaMatiJi"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btn_profile"
+        android:background="@android:color/transparent"
+        />
+
+
+</RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/recyclerview"
+
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
