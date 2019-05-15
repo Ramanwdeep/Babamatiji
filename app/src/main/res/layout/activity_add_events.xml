@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
-            android:hint="add event here"
+            android:hint="Add Event Here"
             android:textSize="29sp"
             android:id="@+id/edit_event"
             />
@@ -36,7 +36,7 @@
               android:hint="ADD"
             android:layout_marginTop="8dp"
           android:background="@color/colorPrimary"
-              android:textColor="@color/white"
+              android:textColorHint="@color/white"
               android:textStyle="bold"
               android:textSize="30sp"
             android:id="@+id/add_events"/>

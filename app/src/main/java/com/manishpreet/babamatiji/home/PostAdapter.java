@@ -87,6 +87,14 @@ class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful())
                         {
+                            for (DocumentSnapshot snapshoot:task.getResult()
+                                 ) {
+                                Likes likes=snapshoot.toObject(Likes.class);
+                                if (likes.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                                {
+                                    holder.likee.setImageResource(R.drawable.liked);
+                                }
+                            }
                             holder.txtLike.setText(String.valueOf(task.getResult().size()+" likes"));
                         }
                     }
@@ -110,6 +118,7 @@ class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
                                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                    holder.likee.setImageResource(R.drawable.liked);
                                                     holder.txtLike.setText(String.valueOf(task.getResult().size()+" likes"));
                                                 }
                                             });

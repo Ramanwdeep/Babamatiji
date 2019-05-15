@@ -55,6 +55,9 @@ DatePickerDialog datePickerDialog;
             @Override
             public void onClick(View v) {
                 String event = editText.getText().toString();
+                if (selectDate.getText().toString().equals("Select Date"))
+                    Toast.makeText(AddEvents.this, "Select Date First", Toast.LENGTH_SHORT).show();
+                else
                 addEventToDatabase(event);
             }
         });

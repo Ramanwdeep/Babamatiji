@@ -2,6 +2,7 @@ package com.manishpreet.babamatiji.profile;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -90,6 +91,7 @@ FirebaseFirestore firebaseFirestore;
             public void onClick(View v) {
                 try {
                     updateDataToFirebase();
+
                 }
                 catch (Exception e)
                 {
@@ -98,6 +100,18 @@ FirebaseFirestore firebaseFirestore;
             }
 
             private void updateDataToFirebase() {
+
+                if (capImageURI == null)
+                {
+                    Toast.makeText(EditActivity.this, "Please select photo", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                final ProgressDialog progressDialog=new ProgressDialog(EditActivity.this);
+                progressDialog.setMessage("Wait...");
+                progressDialog.setCanceledOnTouchOutside(false);
+                progressDialog.show();
+
+
                 Log.e("imageuri", String.valueOf(capImageURI));
                 final StorageReference storageReference=storageRef.child(FirebaseAuth.getInstance().getUid());
                 final UploadTask uploadTask=storageReference.putFile(capImageURI);
@@ -120,11 +134,12 @@ FirebaseFirestore firebaseFirestore;
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful())
-                                            {
+                                            {progressDialog.show();
                                                 Toast.makeText(EditActivity.this,"Successfuly updated",Toast.LENGTH_SHORT).show();
+                                                progressDialog.dismiss();
                                             }
                                             else
-                                            {
+                                            {progressDialog.dismiss();
                                                 Toast.makeText(EditActivity.this,"Not updated",Toast.LENGTH_SHORT).show();;
                                             }
                                         }

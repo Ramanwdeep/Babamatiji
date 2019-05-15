@@ -6,6 +6,9 @@ public class Likes {
 
     String post_id;
 
+    public Likes(){
+
+    }
     public Likes(String uid, String s) {
         this.uid=uid;
         this.post_id=s;
